@@ -1,2 +1,14 @@
 # Project exclude paths
-/venv/
+
+
+# SQLite databases
+*.sqlite
+
+# Virtual environment
+venv
+
+# IDE configs
+.idea
+
+# database
+app.db
