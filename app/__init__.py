@@ -16,4 +16,4 @@ login = LoginManager(app)
 login.login_view = 'login'
 
 # module declaration at bottom to avoid circular dependency
-from app import routes, models
+from app import routes, models, errors
