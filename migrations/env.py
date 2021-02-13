@@ -70,7 +70,7 @@ def run_migrations_online():
             script = directives[0]
             if script.upgrade_ops.is_empty():
                 directives[:] = []
-                logger.info('No changes in schema detected.')
+                logger.info('No changes to the schema detected.')
 
     connectable = engine_from_config(
         config.get_section(config.config_ini_section),
@@ -81,7 +81,7 @@ def run_migrations_online():
     with connectable.connect() as connection:
         context.configure(
             connection=connection,
-            target_metadata=target_metadata,
+            target_metadata=target_metadata, compare_type=True,
             process_revision_directives=process_revision_directives,
             **current_app.extensions['migrate'].configure_args
         )
